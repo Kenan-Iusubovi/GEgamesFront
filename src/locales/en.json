@@ -1,0 +1,25 @@
+{
+    "home.welcome": "Welcome to GEgames.ge!",
+    "home.message": "Enjoy board and card games in your language.",
+
+    "notfound.title": "404 - Page Not Found",
+
+    "auth.title.login": "Login to GEgames.ge",
+    "auth.title.register": "Register",
+    "auth.email": "Email",
+    "auth.phone": "Phone",
+    "auth.login.emailOrPhone": "email or phone",
+    "auth.password": "Password",
+    "auth.login": "Login",
+    "auth.register": "Register",
+    "auth.continueWithGoogle": "Continue with Gmail",
+    "auth.continueWithPhone": "Continue with Phone",
+    "auth.goToRegister": "Don't have an account? Register",
+    "auth.goToLogin": "Already have an account? Login",
+
+    "verify.pending": "Verifying your email...",
+    "verify.success": "Email verified successfully! Redirecting to login...",
+    "verify.error": "Verification failed. Please check your link or try again.",
+
+    "errors.default": "Something went wrong. Please try again."
+  }
