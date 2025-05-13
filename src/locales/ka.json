@@ -1,0 +1,25 @@
+{
+"home.welcome": "მოგესალმებით GEgames.ge-ზე!",
+    "home.message": "ისიამოვნეთ ბარათული და დაფის თამაშებით თქვენს ენაზე.",
+
+    "notfound.title": "404 - გვერდი ვერ მოიძებნა",
+
+    "auth.title.login": "შესვლა GEgames.ge-ზე",
+    "auth.title.register": "რეგისტრაცია",
+    "auth.email": "ელ-ფოსტა",
+    "auth.phone": "ტელეფონი",
+    "auth.login.emailOrPhone": "ელ.ფოსტა ან ტელეფონი",
+    "auth.password": "პაროლი",
+    "auth.login": "შესვლა",
+    "auth.register": "რეგისტრაცია",
+    "auth.continueWithGoogle": "Gmail-ით გაგრძელება",
+    "auth.continueWithPhone": "ტელეფონით გაგრძელება",
+    "auth.goToRegister": "არ გაქვს ანგარიში? დარეგისტრირდი",
+    "auth.goToLogin": "უკვე გაქვს ანგარიში? შედი",
+
+    "verify.pending": "ელფოსტის გადამოწმება მიმდინარეობს...",
+    "verify.success": "ელფოსტა წარმატებით დადასტურდა! გადამისამართება შესვლაზე...",
+    "verify.error": "დადასტურება ვერ მოხერხდა. შეამოწმეთ ბმული ან სცადეთ ხელახლა.",
+
+    "errors.default": "დაფიქსირდა შეცდომა. სცადეთ ხელახლა."
+  }
