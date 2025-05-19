@@ -1,11 +1,12 @@
 {
     "home.welcome": "Welcome to GEgames.ge!",
     "home.message": "Enjoy board and card games in your language.",
+    "to.home": "Home",
 
     "notfound.title": "404 - Page Not Found",
 
     "auth.title.login": "Login to GEgames.ge",
-    "auth.title.register": "Register",
+    "auth.title.register": "Register on GEgames.ge",
     "auth.email": "Email",
     "auth.phone": "Phone",
     "auth.login.emailOrPhone": "email or phone",
@@ -16,6 +17,7 @@
     "auth.continueWithPhone": "Continue with Phone",
     "auth.goToRegister": "Don't have an account? Register",
     "auth.goToLogin": "Already have an account? Login",
+    "auth.confirmPassword": "Confirm Password",
 
     "verify.pending": "Verifying your email...",
     "verify.success": "Email verified successfully! Redirecting to login...",

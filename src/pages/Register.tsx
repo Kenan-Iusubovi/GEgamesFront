@@ -1,50 +1,83 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaGoogle, FaPhone } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import authStyles from '../styles/AuthForm.module.css';
-import buttonStyles from '../styles/Buttons.module.css';
+import AuthForm from '../components/AuthForm';
+import { validateRegisterForm } from '../utils/validators/validateRegisterForm';
+import type { UserDto } from '../types/UserDto'; 
+import { registerUser } from '../api/auth/registerUser';
 
-function Register() {
+const Register: React.FC = () => {
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const { t } = useTranslation();
+
+  const [formData, setFormData] = useState({
+    login: '',
+    password: '',
+    confirmPassword: '',
+    language: i18n.language,
+  });
+
+  const [errors, setErrors] = useState({
+    login: false,
+    password: false,
+    confirmPassword: false,
+  });
+
+  const [touched, setTouched] = useState({
+    login: false,
+    password: false,
+    confirmPassword: false,
+  });
+
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [serverMessage, setServerMessage] = useState('');
+
+  useEffect(() => {
+    const newErrors = validateRegisterForm(formData);
+    setErrors(newErrors);
+    const hasError = Object.values(newErrors).some((err) => err);
+    setIsSubmitDisabled(hasError);
+  }, [formData]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    const { name } = e.target;
+    setTouched((prev) => ({ ...prev, [name]: true }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const user: UserDto = await registerUser(formData);
+      setServerMessage(user.message || t('auth.success'));
+      navigate('/login');
+    } catch (error: any) {
+      setServerMessage(error.message || t('auth.error'));
+    }
+  };
 
   return (
-    <div className={authStyles.container}>
+    <div>
       <h2>{t('auth.title.register')}</h2>
-
-      <form className={authStyles.form}>
-
-        <input type="email" placeholder={t('auth.email')} required />
-        <input type="password" placeholder={t('auth.password')} required />
-        <input type="password" placeholder={t('auth.password')} required />
-
-        <button type="submit" className={`${buttonStyles.button} ${buttonStyles.default}`}>
-          {t('auth.register')}
-        </button>
-
-          <button type="button" className={`${buttonStyles.button} ${buttonStyles.google}`}>
-            <FaGoogle className={buttonStyles.icon} />
-            {t('auth.continueWithGoogle')}
-          </button>
-
-          <button type="button" className={`${buttonStyles.button} ${buttonStyles.phone}`}>
-            <FaPhone className={buttonStyles.icon} />
-            {t('auth.continueWithPhone')}
-          </button>
-        
-
-      <button
-        type="button"
-        onClick={() => navigate('/login')}
-        className={`${buttonStyles.button} ${buttonStyles.default}`}
-      >
-        {t('auth.goToLogin')}
-      </button>
-
-      </form>
+      <AuthForm
+        formData={formData}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        onSubmit={handleSubmit}
+        buttonLabel={t('auth.register')}
+        errors={errors}
+        touched={touched}
+        isSubmitDisabled={isSubmitDisabled}
+         showConfirmPassword={true}   
+            />
+      {serverMessage && <p>{serverMessage}</p>}
     </div>
   );
-}
+};
 
 export default Register;

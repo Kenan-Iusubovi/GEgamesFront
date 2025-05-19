@@ -1,11 +1,12 @@
 {
 "home.welcome": "მოგესალმებით GEgames.ge-ზე!",
     "home.message": "ისიამოვნეთ ბარათული და დაფის თამაშებით თქვენს ენაზე.",
+    "to.home": "მთავარი გვერდი",
 
     "notfound.title": "404 - გვერდი ვერ მოიძებნა",
 
     "auth.title.login": "შესვლა GEgames.ge-ზე",
-    "auth.title.register": "რეგისტრაცია",
+    "auth.title.register": "რეგისტრაცია GEgames.ge-ზე",
     "auth.email": "ელ-ფოსტა",
     "auth.phone": "ტელეფონი",
     "auth.login.emailOrPhone": "ელ.ფოსტა ან ტელეფონი",
@@ -16,6 +17,7 @@
     "auth.continueWithPhone": "ტელეფონით გაგრძელება",
     "auth.goToRegister": "არ გაქვს ანგარიში? დარეგისტრირდი",
     "auth.goToLogin": "უკვე გაქვს ანგარიში? შედი",
+    "auth.confirmPassword": "დაადასტურეთ პაროლი",
 
     "verify.pending": "ელფოსტის გადამოწმება მიმდინარეობს...",
     "verify.success": "ელფოსტა წარმატებით დადასტურდა! გადამისამართება შესვლაზე...",

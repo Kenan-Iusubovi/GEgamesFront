@@ -1,15 +1,38 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import styles from '../styles/App.module.css';
-import LanguageToggle from './LanguageToggle';
+import { useTranslation } from 'react-i18next';
+import { FaGlobe } from 'react-icons/fa';
+import '../styles/LanguageSwitcher.css'
 
-export default function Navbar() {
+const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+
+  const switchLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('lang,', lang);
+  };
+
+  const currentLang = i18n.language;
+
+  const languages = {
+    en: 'English',
+    ka: 'ქართული'
+  };
+
   return (
-    <nav className={styles.navbar}>
-      <Link to="/">Home</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/register">Register</Link>
-      <LanguageToggle />
-    </nav>
+    <div className='languageSwitcher'>
+      <FaGlobe className='globeIcon' />
+      <select
+      value={currentLang}
+      onChange={(e) => switchLanguage(e.target.value)}
+      >
+        {Object.entries(languages).map(([code, label]) => (
+          <option key={code} value={code}>
+            {label}
+          </option>
+        ))}
+      </select>
+
+    </div>
   );
-}
+};
+
+export default LanguageSwitcher;
